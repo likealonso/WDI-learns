@@ -4,18 +4,18 @@ import NavBar from '../../components/NavBar/NavBar'
 import Questions from '../../components/Questions/Questions'
 
 const QuizPage = (props) => {
+    
     return (
         <div>
             <NavBar />
             This is a unit<br/>
             There will be questions<br/><br/>
-            <Questions />
-            <Questions />
-            <Questions />
-            <Questions />
-            <Questions />
-            <Link to='/'>Home</Link>
+            {props.questions ? 
+            props.questions.map( question => <li link={question.text}>{question.text} -- {question.unitId}</li>)
+            : <h1>loading</h1>}
+            
         </div>
     )
 }
 export default QuizPage;
+

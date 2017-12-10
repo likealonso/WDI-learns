@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 var Question = require('./question');
 
 var unitSchema = new Schema({
+    unitId: Number,
     questions: [{type: Schema.ObjectId, ref: 'Question'}]
 })
 

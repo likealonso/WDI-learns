@@ -4,8 +4,8 @@ var Choice = require('./choice');
 
 var questionSchema = new Schema({
     unitId: Number,
-    text: Text,
-    choices: [{type: Schema.Objectid, ref: 'Choice'}]
+    text: String,
+    choices: [{type: Schema.ObjectId, ref: 'Choice'}]
 
 })
 

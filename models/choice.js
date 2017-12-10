@@ -3,9 +3,9 @@ var Schema = mongoose.Schema;
 
 var choiceSchema = new Schema({
     questionId: Number,
-    text: Text,
+    text: String,
     correct: Boolean
 
 })
 
-module.exports = mongoose.model('Choice', choiceScheam);
+module.exports = mongoose.model('Choice', choiceSchema);

@@ -8,8 +8,8 @@ const UnitsPage = (props) => {
         <div>
             <NavBar />
             
-            <li><Link to='/unit'>1</Link></li>
-            <Link to='/'>Home</Link>
+            <li><Link to='/unit/1'>Unit 1 link</Link></li>
+            
         </div>
     )
 }
