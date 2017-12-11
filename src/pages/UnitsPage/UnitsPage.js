@@ -9,8 +9,10 @@ const UnitsPage = (props) => {
             <NavBar user={props.user}
             handleLogout={props.handleLogout}
             />
+            <br/>
+            <br/>
+            <header className="header-footer"><Link to='/unit/1'>Unit 1</Link></header>
             
-            <li><Link to='/unit/1'>Unit 1 link</Link></li>
             
         </div>
     )

@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import SignupPage from './pages/SignupPage/SignupPage'
 import ScorePage from './pages/ScorePage/ScorePage'
 import userService from './utils/userService'
+import HomePage from './pages/HomePage/HomePage'
 
 class App extends Component {
   constructor() {
@@ -48,30 +49,52 @@ class App extends Component {
       <div className="App">
         <header className='header-footer'>W D I &nbsp;&nbsp; L E A R N S</header>
           <Switch>
-            <Route exact path='/login' render={(props) => 
-              <LoginPage 
-              {...props}
-              handleLogin={this.handleLogin}
-              />
-              } />
-            <Route exact path='/signup' render={(props) => 
-              <SignupPage 
-              {...props}
-              handleSignup={this.handleSignup}
-              />} />
+            <Route exact path='/' render={(props) => (
+              userService.getUser() ? 
+                <Redirect to='/unit'/>
+                :
+                <HomePage 
+                {...props}
+                handleLogin={this.handleLogin}/>
+            )}/>
+            <Route exact path='/login' render={(props) => (
+              userService.getUser() ? 
+                <Redirect to='/unit'/>
+                :
+                <LoginPage 
+                {...props}
+                handleLogin={this.handleLogin}/>
+            )}/>
+            <Route exact path='/signup' render={(props) => (
+              userService.getUser() ? 
+                <Redirect to='/unit'/>
+                :
+                <SignupPage 
+                {...props}
+                handleSignup={this.handleSignup}/>
+            )}/>
             <Route exact path='/scores' render={(props) => (
               userService.getUser() ?
                 <ScorePage />
-              : <Redirect to='/login' /> 
+              : <Redirect to='/login'/> 
             )}/>
-            <Route exact path='/unit' render={(props) => <UnitsPage 
-              user={this.state.user}
-            />} />
-            <Route exact path='/unit/1' render={(props) => <QuizPage 
-              user={this.state.user}
-              questions={this.state.questions}/>}/>}
-          
-            
+            <Route exact path='/unit' render={(props) => (
+              userService.getUser() ?
+                <UnitsPage 
+                user={this.state.user}
+                handleLogout={this.handleLogout} 
+                />
+              : <Redirect to='/'/>  
+            )}/> 
+            <Route exact path='/unit/1' render={(props) => (
+              userService.getUser() ?
+                <QuizPage 
+                user={this.state.user}
+                handleLogout={this.handleLogout}
+                questions={this.state.questions}
+                />
+                : <Redirect to='/' />
+            )}/>
           </Switch>
       </div>
     );

@@ -10,6 +10,8 @@ const QuizPage = (props) => {
             <NavBar user={props.user}
             handleLogout={props.handleLogout}
             />
+            <br/>
+            <br/>
             This is a unit<br/>
             There will be questions<br/><br/>
             {props.questions ? 
