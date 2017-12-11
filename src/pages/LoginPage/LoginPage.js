@@ -1,11 +1,18 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import './LoginPage.css'
 
 const LoginPage = (props) => {
     return (
-        <div>
+        <div className='LoginPage'>
             <img src="../../images/jimothy.png"></img><br/>
-            <Link to='/unit'><h1>Welcome</h1></Link>
+            <h1>Do you got what it takes?</h1>
+            
+            <LoginForm       
+                {...props} 
+                handleLogin={props.handleLogin} 
+            />
 
         </div>
     )

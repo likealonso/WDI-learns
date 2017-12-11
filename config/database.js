@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/amaz');
+mongoose.Promise = global.Promise;
+
+mongoose.connect(process.env.DATABASE_URL);
+// mongoose.connect('mongodb://localhost/amaz');
 
 const db = mongoose.connection;
 
@@ -10,3 +13,7 @@ db.once('open', () => {
 db.on('error', (err) => {
     console.error(`Database error: \n${err}`)
 })
+
+
+
+

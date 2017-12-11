@@ -6,7 +6,9 @@ import Questions from '../../components/Questions/Questions'
 const UnitsPage = (props) => {
     return (
         <div>
-            <NavBar />
+            <NavBar user={props.user}
+            handleLogout={props.handleLogout}
+            />
             
             <li><Link to='/unit/1'>Unit 1 link</Link></li>
             

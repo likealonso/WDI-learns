@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // connect to mongoDB
+require('dotenv').config();
 require('./config/database');
 
 // require our routes
@@ -20,8 +21,12 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.use(require('./config/auth'))
+
 // API routes here
-app.use('/', require('./routes/question'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/scores', require('./routes/api/scores'));
+// app.use('/', require('./routes/question'));
 
 // "catch all" routes for SPA client-side routing
 app.get('/*', function(req, res) {
