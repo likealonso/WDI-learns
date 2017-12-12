@@ -20,7 +20,8 @@ class App extends Component {
     super();
     this.state = {
       questions: null,
-      scores:[]
+      scores:[],
+      quizScore: 0
     }
   }
 
