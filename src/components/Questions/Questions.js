@@ -1,13 +1,18 @@
 import React from 'react';
-import Choices from '../Choices/Choices'
 
 const Questions = (props) => {
     return (
         <div>
-        <h3>Why do things happen?</h3>
-        
+            <h3>This is the first unit</h3>
+            <button onClick={()=> props.handleQuestions()}>Press me</button>
+                {props.questions ? 
+                props.questions.map( (el, elIdx) => 
+                <p key={elIdx}><h1>{el.text}</h1><br/>{el.choices.map((arr, arrIdx) => <p key={arrIdx}>
+                {arr.choiceId}) {arr.text}</p>)}</p>)
+                : <h1>loading</h1>}
         </div>
     )
 }
+
 
 export default Questions

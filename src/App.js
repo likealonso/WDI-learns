@@ -19,18 +19,26 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      questions: null
+      questions: null,
+      scores:[]
     }
   }
 
   componentDidMount() {
     let user = userService.getUser();
     this.setState({user});
+    
+    fetch('/1').then( data => data.json() ).then( data =>{
+      this.setState({questions: data})
+      console.log(data)
+    }) 
   }
-  
-  // fetch('/unit/1').then( data => data.json() ).then( data =>{
-  //   this.setState({questions: data})
-  // } )
+
+  handleQuestions = () => {
+    console.log(this.state.questions[0].choices[0].correct)
+
+  }
+
   handleLogout = () => {
     userService.logout();
     this.setState({user: null});
@@ -75,7 +83,9 @@ class App extends Component {
             )}/>
             <Route exact path='/scores' render={(props) => (
               userService.getUser() ?
-                <ScorePage />
+                <ScorePage 
+                scores={this.state.scores}
+                />
               : <Redirect to='/login'/> 
             )}/>
             <Route exact path='/unit' render={(props) => (
@@ -89,6 +99,7 @@ class App extends Component {
             <Route exact path='/unit/1' render={(props) => (
               userService.getUser() ?
                 <QuizPage 
+                handleQuestions={this.handleQuestions}
                 user={this.state.user}
                 handleLogout={this.handleLogout}
                 questions={this.state.questions}

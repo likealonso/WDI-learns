@@ -5,8 +5,8 @@ var scoresCtrl = require('../../controllers/scores');
 /*---------- Protected Routes ----------*/
 
 // TODO: Protect this route with custom middleware
-router.get('/', checkAuth, scoresCtrl.index);
-
+router.get('/', checkAuth, scoresCtrl.highScores);
+router.post('/', scoresCtrl.create);
 
 module.exports = router;
 

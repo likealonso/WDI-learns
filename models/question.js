@@ -1,11 +1,19 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Choice = require('./choice');
+// var Choice = require('./choice');
+
+var choiceSchema = new Schema({
+    choiceId: String,
+    text: String,
+    correct: Boolean
+})
 
 var questionSchema = new Schema({
     unitId: Number,
+    questionId: Number,
     text: String,
-    choices: [{type: Schema.ObjectId, ref: 'Choice'}]
+    choices: [choiceSchema]
+    // choices: [{type: Schema.ObjectId, ref: 'Choice'}]
 
 })
 

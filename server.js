@@ -26,7 +26,7 @@ app.use(require('./config/auth'))
 // API routes here
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/scores', require('./routes/api/scores'));
-// app.use('/', require('./routes/question'));
+app.use('/1', require('./routes/api/questions'));
 
 // "catch all" routes for SPA client-side routing
 app.get('/*', function(req, res) {

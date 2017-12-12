@@ -5,15 +5,8 @@ function index (req, res) {
     Question.find({}).then(questions => (res.json(questions)) )
 }
 
-function addItem (req, res) {
-    
-}
-
-function deleteItem (req, res) {
-    
-}
-
 module.exports = {
     index
     
 }
+
