@@ -64,3 +64,11 @@ const ScorePage = (props) => {
 // }
 
 export default ScorePage;
+
+
+// this.state ={
+//   movie: props.movie
+// }
+// <div>
+// this.state.movie.name
+// </div>

@@ -23,7 +23,7 @@ class LoginForm extends Component {
     userService.login(this.state)
       .then(() => {
         this.props.handleLogin();
-        this.props.history.push('/unit');
+        this.props.history.push('/units');
       })
 
       .catch(err => alert('Invalid Credentials!'))

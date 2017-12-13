@@ -14,30 +14,23 @@ import SignupPage from './pages/SignupPage/SignupPage'
 import ScorePage from './pages/ScorePage/ScorePage'
 import userService from './utils/userService'
 import HomePage from './pages/HomePage/HomePage'
+import NavBar from './components/NavBar/NavBar'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      questions: null,
+      units: null,
+      answers: [],
       scores:[],
-      quizScore: 0
+      quizScore: 0,
+      // checked: false
     }
   }
 
   componentDidMount() {
     let user = userService.getUser();
     this.setState({user});
-    
-    fetch('/1').then( data => data.json() ).then( data =>{
-      this.setState({questions: data})
-      console.log(data)
-    }) 
-  }
-
-  handleQuestions = () => {
-    console.log(this.state.questions[0].choices[0].correct)
-
   }
 
   handleLogout = () => {
@@ -57,10 +50,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className='header-footer'>W D I &nbsp;&nbsp; L E A R N S</header>
+          <NavBar user={this.state.user}
+            handleLogout={this.handleLogout}/>
           <Switch>
             <Route exact path='/' render={(props) => (
               userService.getUser() ? 
-                <Redirect to='/unit'/>
+                <Redirect to='/units'/>
                 :
                 <HomePage 
                 {...props}
@@ -68,7 +63,7 @@ class App extends Component {
             )}/>
             <Route exact path='/login' render={(props) => (
               userService.getUser() ? 
-                <Redirect to='/unit'/>
+                <Redirect to='/units'/>
                 :
                 <LoginPage 
                 {...props}
@@ -76,7 +71,7 @@ class App extends Component {
             )}/>
             <Route exact path='/signup' render={(props) => (
               userService.getUser() ? 
-                <Redirect to='/unit'/>
+                <Redirect to='/units'/>
                 :
                 <SignupPage 
                 {...props}
@@ -89,24 +84,27 @@ class App extends Component {
                 />
               : <Redirect to='/login'/> 
             )}/>
-            <Route exact path='/unit' render={(props) => (
+            <Route exact path='/units' render={(props) => (
               userService.getUser() ?
                 <UnitsPage 
                 user={this.state.user}
                 handleLogout={this.handleLogout} 
+                units={this.state.units}
+                unitId={props.match.params.id}
                 />
               : <Redirect to='/'/>  
             )}/> 
-            <Route exact path='/unit/1' render={(props) => (
+            <Route exact path='/units/:id' render={(props) => {
+              // console.log('route > route param id =', props.match.params.id)
               userService.getUser() ?
                 <QuizPage 
-                handleQuestions={this.handleQuestions}
                 user={this.state.user}
+                unitId={props.match.params.id}
                 handleLogout={this.handleLogout}
-                questions={this.state.questions}
+                units={this.state.units}
                 />
                 : <Redirect to='/' />
-            )}/>
+            }}/>
           </Switch>
       </div>
     );
@@ -114,4 +112,3 @@ class App extends Component {
 }
 
 export default App;
-

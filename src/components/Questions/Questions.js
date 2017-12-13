@@ -1,24 +1,22 @@
 import React from 'react';
 
 const Questions = (props) => {
-    if (props.questions) {
-    let a = props.questions.filter(function(el) {
-        return el.unitId === 1
-    }) 
+    let uni1 = props.questions;
+
     return (
         <div>
             <h3>This is the first unit</h3>
-            <button onClick={()=> props.handleQuestions()}>Press me</button>
+            {uni1.map( (el, elIdx) => 
+                <div key={el._id}>{el.text}<br/>{el.choices.map((arr, arrIdx) => 
+                <label key={arr._id}>
+                <input type="checkbox" onClick={() => props.onAnswering()} />
                 
-            {a.map( (el, elIdx) => 
-            <p key={elIdx}><h1>{el.text}</h1><br/>{el.choices.map((arr, arrIdx) => <p key={arrIdx}>
-            {arr.choiceId}) {arr.text}</p>)}</p>)
-            }
+               <p>{arr.choiceId}) {arr.text}&nbsp;&nbsp;&nbsp;</p></label> )}</div>)}
+               
+            <br/>
         </div>
     )
+    // else {return 'LOADING'}
 }
-    else {return 'LOADING'}
-}
-
 
 export default Questions
