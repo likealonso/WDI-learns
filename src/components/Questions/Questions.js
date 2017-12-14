@@ -4,7 +4,7 @@ import Question from './../Question/Question';
 
 const Questions = (props) => {    
     return (
-        <div>
+        <div style={{border:'1px red solid', textAlign:'left'}} className="col-xs-12 col-sm-12 col-md-12">
             {props.unit && props.unit.questions.map(question => <Question
                 question={question}
                 handleAnswer={props.handleAnswer}

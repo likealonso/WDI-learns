@@ -4,6 +4,11 @@ body {
   font-family: sans-serif;
 }
 
+.option {
+  /* font-family: 'Montserrat', sans-serif;
+  color: blue */
+}
+
 .header-footer {
   font-family: 'Montserrat', sans-serif; 
   font-weight: bold; 

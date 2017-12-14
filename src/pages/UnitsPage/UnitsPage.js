@@ -25,6 +25,7 @@ class UnitsPage extends Component {
         } else {
             return (
                 <div>
+                
                     <h1>Select Your Unit</h1>
                     {this.state.units.map(unit => <UnitCard key={unit.unitId} unit={unit}/>)}
                 </div>

@@ -105,9 +105,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className='header-footer'>W D I &nbsp;&nbsp; L E A R N S</header>
           <NavBar user={this.state.user}
             handleLogout={this.handleLogout}/>
+        <br/>
+        <header className='header-footer'>W D I &nbsp;&nbsp; L E A R N S</header>
           <Switch>
             <Route exact path='/' render={(props) => (
               userService.getUser() ? 

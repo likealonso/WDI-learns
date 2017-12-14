@@ -6,8 +6,9 @@ import './LoginPage.css'
 const LoginPage = (props) => {
     return (
         <div className='LoginPage'>
+            <h2>"Do or WDI!"</h2>
+            <br/>
             <img style={{border: "1px black dotted"}} src="../../images/jimothy.png"></img><br/>
-            <h1>"Do or WDI!"</h1>
             
             <LoginForm       
                 {...props} 

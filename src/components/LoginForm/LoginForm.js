@@ -32,7 +32,8 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <header className="header-footer">Log In</header>
+        <br/>
+        <header className="header-footer" style={{fontSize:20}}>Log In</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">

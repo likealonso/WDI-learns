@@ -94,13 +94,17 @@ class QuizPage extends Component {
     render() {
         return (
             <div>
-                <h2>Answering Quiz {this.props.unitId}</h2>
-                <Questions 
-                    unit={this.props.unit}
-                    currentUnitId={this.props.unitId}
-                    handleAnswer={this.handleAnswer}
-                />
-                <button onClick={this.submitAnswers}>Submit</button>
+                <br/>
+                <h4>You have entered the world of WDI. On guard!</h4> 
+                    <h3>Quiz {this.props.unitId}</h3>
+                    <div style={{border:'1px red solid', textAlign:'left'}} className="col-xs-12 col-sm-12 col-md-12">
+                    <Questions 
+                        unit={this.props.unit}
+                        currentUnitId={this.props.unitId}
+                        handleAnswer={this.handleAnswer}
+                    />
+                    <button onClick={this.submitAnswers}>Submit</button>
+                </div>
             </div>
         );
     }
