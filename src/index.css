@@ -5,14 +5,24 @@ body {
 }
 
 .header-footer {
-  height: 50px;
+  font-family: 'Montserrat', sans-serif; 
+  font-weight: bold; 
+  font-size: 40px; 
+  color: black; 
+  letter-spacing: 2px;
+  padding: 0 0 10px 0;
+  display: inline-block;
+  position: relative;
+  top: 6px
+  /* height: 50px;
   padding: 10px;
   margin: 15px 0;
   color: grey;
   font-size: 18px;
-  text-align: center;
+  text-align: center; */
 }
 
 .cancel-btn {
   width: 100px;
 }
+

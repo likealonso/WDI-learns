@@ -4,71 +4,105 @@ import NavBar from '../../components/NavBar/NavBar';
 import Questions from '../../components/Questions/Questions';
 
 
-class QuizPage extends Component {
-    constructor(props){
-        console.log('props =', props)
-        super();
-        this.state = {
-            unitId: props.unitId,
-            unit: {},
-            questions: [],
-            answers: []
-        }
-        console.log('HEY', this.state)
-    }
+// class QuizPage extends Component {
+//     constructor(props){
+//         console.log('props =', props)
+//         super();
+//         this.state = {
+//             unitId: props.unitId,
+//             unit: {},
+//             questions: []
+//         }
+//         console.log('HEY', this.state)
+//     }
 
-    componentDidMount() {
-        console.log('comopnent mounted')
-        this.getQuestions();
+
+    // componentDidMount() {
+    //     this.getQuestions();
         // this.onAnswering();
-    }
+    // }
 
-    onAnswering() {
+    // onAnswering() {
         // update the answers array
-        console.log('qId = ?')
-        console.log('choiceId of the choice i selected = ?')
-        }
+        // console.log('qId = ?')
+        // console.log('choiceId of the choice i selected = ?')
+        // }
     
 
-    onsubmit() {
+    // onsubmit() {
         // create the body object for the post request
         // make post request to /api/scores
+    // }
+
+    // getQuestions() {
+    //     console.log('getting quetions; for unit =', this.state.unitId)
+    //     fetch('/data')
+    //     // fetch(`/api/questions/${this.state.unitId}`)
+    //     // fetch('/api/questions/' + this.state.unitId) // TODO CHANGE TO THIS
+
+    //         .then( data => data.json() )
+    //         .then( data => {
+    //             this.setState({unit: data});
+    //         })
+    //         .catch( err => {
+    //             console.log('err =', err)
+    //         })
+    // }
+class QuizPage extends Component {
+    constructor(props) {
+        super(props);
+        let answers = props.unit ? props.unit.questions.map(q => ({
+            unitId: props.unitId,
+            questionId: q.questionId,
+            answerIdx: null,
+            correctIdx: q.correctIdx,
+            correct: false,
+        })) : [];
+        this.state = {answers}
     }
 
-    getQuestions() {
-        console.log('getting quetions; for unit =', this.state.unitId)
-        // fetch('/1')
-        fetch(`/api/questions/${this.state.unitId}`)
-        // fetch('/api/questions/' + this.state.unitId) // TODO CHANGE TO THIS
+    // Possible structure of answer object
+    // {
+    //   unitId: 2,
+    //   questionId: 2 
+    //   answerIdx: 0
+    //   correct: true 
+    // }
 
-            .then( data => data.json() )
-            .then( data => {
-                this.setState({unit: data});
-            })
-            .catch( err => {
-                console.log('err =', err)
-            })
+    handleAnswer = (e) => {
+        var answerObj = this.state.answers.find(answer => answer.questionId === parseInt(e.target.name));
+        answerObj.answerIdx = parseInt(e.target.value);
+        answerObj.correct = (answerObj.answerIdx === answerObj.correctIdx);
+        this.setState({
+            answers: this.state.answers
+        });
     }
 
+    
+
+    submitAnswers = () => {
+        this.props.handleAnswers(this.state.answers);
+        // this.props.calculateScore(this.state.scores)
+        // change client route to show AnswersPage
+    }
+
+    
+
+
+// this.state.answers.some(a => a.answerIdx === null)
+    
     render() {
-        
-        if (!this.state.unit.unitId) {
-            return (<div>Loading</div>)
-        } else {
-            return (
-                <div>
-                    show questions here
-                    <Questions 
-                        unit={this.state.unitId}
-                        questions={this.getQuestions}
-                        user={this.state.user}
-                        unitId={this.match.params.id}
-                        handleLogout={this.handleLogout}
-                        units={this.state.units}
-                    />
-                </div>
-            )
-        }
+        return (
+            <div>
+                <h2>Answering Quiz {this.props.unitId}</h2>
+                <Questions 
+                    unit={this.props.unit}
+                    currentUnitId={this.props.unitId}
+                    handleAnswer={this.handleAnswer}
+                />
+                <button onClick={this.submitAnswers}>Submit</button>
+            </div>
+        );
     }
 }
 

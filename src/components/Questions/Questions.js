@@ -1,22 +1,26 @@
 import React from 'react';
+import Question from './../Question/Question';
 
-const Questions = (props) => {
-    let uni1 = props.questions;
 
+const Questions = (props) => {    
     return (
         <div>
-            <h3>This is the first unit</h3>
-            {uni1.map( (el, elIdx) => 
-                <div key={el._id}>{el.text}<br/>{el.choices.map((arr, arrIdx) => 
-                <label key={arr._id}>
-                <input type="checkbox" onClick={() => props.onAnswering()} />
-                
-               <p>{arr.choiceId}) {arr.text}&nbsp;&nbsp;&nbsp;</p></label> )}</div>)}
-               
-            <br/>
+            {props.unit && props.unit.questions.map(question => <Question
+                question={question}
+                handleAnswer={props.handleAnswer}
+                />)}
         </div>
-    )
-    // else {return 'LOADING'}
+    );
 }
 
 export default Questions
+
+// { currentUnit.questions ? currentUnit.questions.map((question, elIdx) => 
+//     <li key={elIdx}>{question.text}<br/>{question.choices.map((choice, choIdx) => <p>{choice.choiceId}) {choice.text}</p>)}</li>)
+//     : <h1>Loading</h1> }
+    {/* TODO: Write this */}
+
+// <div>
+//     <h1>Welcome to unit {currentUnit.unitId}</h1>
+
+// </div>

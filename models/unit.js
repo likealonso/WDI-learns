@@ -1,17 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-
-var choiceSchema = new Schema({
-    choiceId: String,
-    text: String,
-    correct: Boolean
-})
-
 var questionSchema = new Schema({
     questionId: Number,
     text: String,
-    choices: [choiceSchema]
+    choices: [String],
+    correctIdx: Number
 })
 
 var unitSchema = new Schema({
