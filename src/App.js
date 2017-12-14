@@ -25,7 +25,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      answers: [],
       scores:[],
       units: [],
       currentScore: 0
@@ -103,6 +102,7 @@ class App extends Component {
   /* lifecycle methods */
   
   componentDidMount() {
+    console.log('comeponent is mounted')
     let user = userService.getUser();
     this.getQuestions().then(units => {
       this.setState({user, units});
@@ -111,11 +111,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+    <div className="App">
+      <div className="container-fluid" style={{backgroundColor: "#DA222A"}}>
           <NavBar user={this.state.user}
             handleLogout={this.handleLogout}/>
         <br/>
         <header className='header-footer'>W D I &nbsp;&nbsp; L E A R N S</header>
+      </div>
           <Switch>
             <Route exact path='/' render={(props) => (
               userService.getUser() ? 
@@ -159,19 +161,20 @@ class App extends Component {
                 />
               : <Redirect to='/'/>  
             )}/> 
-            <Route exact path='/units/:id' render={(props) => (
-              // console.log('route > route param id =', props.match.params.id)
-              userService.getUser() ?
-                <QuizPage
-                  unitId={props.match.params.id}
-                  unit={this.state.units.find(u => u.unitId === parseInt(props.match.params.id))}
-                  handleAnswers={this.handleAnswers}
-                  calculateScore={this.calculateScore}
-                  score={this.score}
-                  updateCurrentScore={this.updateCurrentScore}
-                />
-                : <Redirect to='/' />
-            )}/>
+            <Route exact path='/units/:id' render={(props) => {
+              return (// console.log('route > route param id =', props.match.params.id)
+                userService.getUser() ?
+                  <QuizPage
+                    unitId={props.match.params.id}
+                    units={this.state.units}
+                    unit={this.state.units.find(u => u.unitId === parseInt(props.match.params.id))}
+                    handleAnswers={this.handleAnswers}
+                    calculateScore={this.calculateScore}
+                    score={this.score}
+                    updateCurrentScore={this.updateCurrentScore}
+                  />
+                  : <Redirect to='/' />
+            )}}/>
           </Switch>
       </div>
     );

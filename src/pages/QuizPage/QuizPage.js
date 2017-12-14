@@ -51,16 +51,17 @@ import Questions from '../../components/Questions/Questions';
 class QuizPage extends Component {
     constructor(props) {
         super(props);
-        let answers = props.unit ? props.unit.questions.map(q => ({
+    }
+
+    componentWillReceiveProps(props) {
+        this.answers = props.unit ? props.unit.questions.map(q => ({
             unitId: props.unitId,
             questionId: q.questionId,
             answerIdx: null,
             correctIdx: q.correctIdx,
             correct: false,
         })) : [];
-        this.state = {answers}
     }
-
     // Possible structure of answer object
     // {
     //   unitId: 2,
@@ -70,21 +71,27 @@ class QuizPage extends Component {
     // }
 
     handleAnswer = (e) => {
-        var answerObj = this.state.answers.find(answer => answer.questionId === parseInt(e.target.name));
-        answerObj.answerIdx = parseInt(e.target.value);
-        answerObj.correct = (answerObj.answerIdx === answerObj.correctIdx);
-        this.setState({
-            answers: this.state.answers
-        });
+        console.log(this.answers)
+        var answerObj = this.answers.find(answer => answer.questionId === parseInt(e.target.name));
+        if (answerObj) {
+            answerObj.answerIdx = parseInt(e.target.value);
+            answerObj.correct = (answerObj.answerIdx === answerObj.correctIdx);
+            // this.setState({
+            //     answers: this.state.answers
+            // })
+        }
     }
 
     
 
     submitAnswers = () => {
-        this.props.handleAnswers(this.state.answers);
-        this.props.score(this.state.answers);
-        this.props.updateCurrentScore(this.props.score(this.state.answers))
-        this.props.history.push('/scores')
+        console.log('ANSWERS IN SUBMIMTANSWERS', this.answers)
+        if (this.answers){
+            this.props.handleAnswers(this.answers);
+            this.props.score(this.answers);
+            this.props.updateCurrentScore(this.props.score(this.answers))
+            this.props.history.push('/scores')
+        }
         // browserHistory.push('/')
         // console.log(this.props.score(this.state.answers))
         // this.props.calculateScore(this.state.scores)
@@ -97,7 +104,6 @@ class QuizPage extends Component {
 // this.state.answers.some(a => a.answerIdx === null)
     
     render() {
-        console.
         return (
             <div>
                 <br/>
@@ -110,7 +116,7 @@ class QuizPage extends Component {
                         handleAnswer={this.handleAnswer}
                     />
                     <button onClick={this.submitAnswers}>Submit</button>
-                    <h1>Score: {this.props.score(this.state.answers)} </h1>
+                    <h1>Score: {this.answers ? this.props.score(this.answers)  : 0} </h1>
 
                 </div>
             </div>
