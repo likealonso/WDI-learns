@@ -27,7 +27,8 @@ class App extends Component {
     this.state = {
       answers: [],
       scores:[],
-      units: []
+      units: [],
+      currentScore: 0
     }
   }
 
@@ -72,9 +73,15 @@ class App extends Component {
       console.log('ansuwer =', answer)
       if (answer.correct) score++
     })
-    console.log(score)
     return score
+    console.log(score)
   }
+
+  updateCurrentScore = (score) => {
+    this.setState({
+      currentScore:score
+    })
+  } 
 
 //   calculateScore = (scores) => {
 //     this.setState({scores})
@@ -138,6 +145,7 @@ class App extends Component {
               userService.getUser() ?
                 <ScorePage 
                 scores={this.state.scores}
+                score={this.state.currentScore}
                 />
               : <Redirect to='/login'/> 
             )}/>
@@ -159,6 +167,8 @@ class App extends Component {
                   unit={this.state.units.find(u => u.unitId === parseInt(props.match.params.id))}
                   handleAnswers={this.handleAnswers}
                   calculateScore={this.calculateScore}
+                  score={this.score}
+                  updateCurrentScore={this.updateCurrentScore}
                 />
                 : <Redirect to='/' />
             )}/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import Questions from '../../components/Questions/Questions';
 
@@ -82,6 +82,11 @@ class QuizPage extends Component {
 
     submitAnswers = () => {
         this.props.handleAnswers(this.state.answers);
+        this.props.score(this.state.answers);
+        this.props.updateCurrentScore(this.props.score(this.state.answers))
+        this.props.history.push('/scores')
+        // browserHistory.push('/')
+        // console.log(this.props.score(this.state.answers))
         // this.props.calculateScore(this.state.scores)
         // change client route to show AnswersPage
     }
@@ -92,25 +97,29 @@ class QuizPage extends Component {
 // this.state.answers.some(a => a.answerIdx === null)
     
     render() {
+        console.
         return (
             <div>
                 <br/>
                 <h4>You have entered the world of WDI. On guard!</h4> 
                     <h3>Quiz {this.props.unitId}</h3>
-                    <div style={{border:'1px red solid', textAlign:'left'}} className="col-xs-12 col-sm-12 col-md-12">
+                    <div style={{border:'1px red solid'}} className="col-xs-12 col-sm-12 col-md-12">
                     <Questions 
                         unit={this.props.unit}
                         currentUnitId={this.props.unitId}
                         handleAnswer={this.handleAnswer}
                     />
                     <button onClick={this.submitAnswers}>Submit</button>
+                    <h1>Score: {this.props.score(this.state.answers)} </h1>
+
                 </div>
             </div>
         );
     }
 }
 
-export default QuizPage;
+// export default QuizPage;
+export default withRouter(QuizPage)
 
 
 
