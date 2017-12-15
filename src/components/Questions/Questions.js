@@ -8,7 +8,7 @@ const Questions = (props) => {
     }
     return (
         <div>
-            {props.unit && props.unit.questions.slice(0,3).map(question => 
+            {props.unit && props.unit.questions.slice(0,10).map(question => 
                 <Question
                     key={question.questionId}
                     question={question}
