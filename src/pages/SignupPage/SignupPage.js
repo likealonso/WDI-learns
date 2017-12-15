@@ -15,9 +15,10 @@ class SignupPage extends Component {
   render() {
     return (
       <div className='SignupPage'>
+        <br/>
             <h2>"Beautiful!"</h2>
             <br/>
-        <img style={{border: "1px black dotted"}} src="../../images/jimothy.png"></img><br/>
+        <img style={{border: "1px black dotted"}} src="../../images/jimothy.png"></img>
         <SignupForm
            {...this.props} 
             updateMessage={this.updateMessage} 

@@ -32,16 +32,8 @@ class QuizPage extends Component {
     
     
     submitAnswers = () => {
-        // var submit = this.props.updateCurrentScore(this.props.score(this.state.answers));
         this.setState({showAnswers: true})
-        // this.props.updateCurrentScore(this.props.score(this.state.answers));
-
-        // var submit = this.props.updateCurrentScore(this.props.score(this.state.answers));
-        // Promise.all([submit]).then((resolve, reject)=> {
-        //     this.setState({showAnswers: true});
-        // })
-        // this.props.handleAnswers(this.state.answers);
-        // this.props.score(this.state.answers);
+        // will take me to a different page
         // this.props.history.push('/scores')
     }
 
@@ -58,21 +50,21 @@ class QuizPage extends Component {
     render() {
         
         return (
-            <div >
-                <br/>
+            <div>
+                <br/><br/>
                 <h4>You have entered the world of WDI. On guard!</h4> 
-                    <h3>Quiz {this.props.unitId}</h3>
-                    <div style={{border:'1px red solid', padding: '20px 50px'}} className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <Questions 
-                        unit={this.props.unit}
-                        currentUnitId={this.props.unitId}
-                        handleAnswer={this.handleAnswer}
-                        answers={this.state.answers}
-                        showAnswers={this.state.showAnswers}
-                    />
-                    <button className="btn btn-primary" onClick={this.submitAnswers}>Submit</button>
-                    <div>Score:{this.props.finalScore}</div>
-                    
+                    <h2>Take this Unit {this.props.unitId} Quiz:</h2><br/>
+                    <div style={{fontSize: 15}}><Link to='/units'>Or Try Another Quiz!</Link></div><br/>
+                    <div className="quiz">
+                        <Questions 
+                            unit={this.props.unit}
+                            currentUnitId={this.props.unitId}
+                            handleAnswer={this.handleAnswer}
+                            answers={this.state.answers}
+                            showAnswers={this.state.showAnswers}
+                        />
+                        <button className="btn btn-primary" onClick={this.submitAnswers}>What's your score?</button><br/><br/>
+                    <div>You score is: {this.props.finalScore}</div><br/>
                 </div>
             </div>
         );

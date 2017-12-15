@@ -14,7 +14,3 @@ db.once('open', () => {
 db.on('error', (err) => {
     console.error(`Database error: \n${err}`)
 })
-
-
-
-

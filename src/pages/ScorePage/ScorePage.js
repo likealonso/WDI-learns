@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './ScorePage.css';
-import scoresAPI from '../../utils/scoresAPI';
 import ScoresTable from '../../components/ScoresTable/ScoresTable'
 
 const ScorePage = (props) => {  
