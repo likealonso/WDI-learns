@@ -54,14 +54,6 @@ class QuizPage extends Component {
         this.buildAnswers(props);
     }
 
-    // Possible structure of answer object
-    // {
-    //   unitId: 2,
-    //   questionId: 2 
-    //   answerIdx: 0
-    //   correct: true 
-    // }
-
     handleAnswer = (e) => {
         var answerObj = this.state.answers.find(answer => answer.questionId === parseInt(e.target.name));
         answerObj.answerIdx = parseInt(e.target.value);
@@ -87,7 +79,6 @@ class QuizPage extends Component {
         this.props.handleAnswers(this.state.answers);
         this.props.score(this.state.answers);
         this.props.updateCurrentScore(this.props.score(this.state.answers))
-        this.props.history.push('/scores')
         // browserHistory.push('/')
         // console.log(this.props.score(this.state.answers))
         // this.props.calculateScore(this.state.scores)
@@ -115,8 +106,6 @@ class QuizPage extends Component {
                         handleAnswer={this.handleAnswer}
                     />
                     <button onClick={this.submitAnswers}>Submit</button>
-                    <h1>Score: {this.props.score(this.state.answers)} </h1>
-
                 </div>
             </div>
         );

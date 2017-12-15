@@ -63,12 +63,13 @@ class App extends Component {
   
   score(answers) {
     let score = 0;
-
+    let validAnswer = answers.filter(el => el.answerIdx !== null).length;
+    console.log('HEY!!!!!!!', validAnswer)
     answers.forEach(answer => {
       console.log('ansuwer =', answer)
       if (answer.correct) score++
     })
-    return score
+    return score+"/10"
     console.log(score)
   }
 
@@ -76,6 +77,9 @@ class App extends Component {
     this.setState({
       currentScore:score
     })
+
+    this.props.history.push('/scores')
+    
   } 
 
 //   calculateScore = (scores) => {
@@ -84,13 +88,20 @@ class App extends Component {
 // }
 
   /* other functions */
-  getQuestions() {
+  getQuestions(user) {
     return fetch('/data')
     // fetch(`/api/questions/${this.state.unitId}`)
     // fetch('/api/questions/' + this.state.unitId) // TODO CHANGE TO THIS
         .then( res => res.json() )
         .catch( err => {
             console.log('err =', err)
+        })
+        .then(units => {
+          units.forEach(unit => {
+            unit.questions = unit.questions
+                                .sort(() => .5 - Math.random());
+          });
+          this.setState({user, units});
         });
 }
 
@@ -99,9 +110,7 @@ class App extends Component {
   
   componentDidMount() {
     let user = userService.getUser();
-    this.getQuestions().then(units => {
-      this.setState({user, units});
-    });
+    this.getQuestions(user)
   }
 
   render() {

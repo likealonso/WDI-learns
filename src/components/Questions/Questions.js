@@ -3,9 +3,12 @@ import Question from './../Question/Question';
 
 
 const Questions = (props) => {    
+    if (props.unit) {
+    console.log(props.unit.questions)
+    }
     return (
         <div style={{border:'1px red solid', textAlign:'left'}} className="col-xs-12 col-sm-12 col-md-12">
-            {props.unit && props.unit.questions.map(question => <Question
+            {props.unit && props.unit.questions.slice(0,3).map(question => <Question
                 key={question.questionId}
                 question={question}
                 handleAnswer={props.handleAnswer}
@@ -13,6 +16,9 @@ const Questions = (props) => {
         </div>
     );
 }
+// sort(function() {
+//     return .5 - Math.random();
+//     })
 
 export default Questions
 
