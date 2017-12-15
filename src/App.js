@@ -22,7 +22,6 @@ class App extends Component {
     super();
     this.state = {
       answers: [],
-      // scores:[],
       units: [],
       currentScore: 0
     }
@@ -45,10 +44,6 @@ class App extends Component {
 
   handleAnswers = (answers) => {
     this.setState({answers});
-
-    // const score = this.score(this.state.answers);
-
-    // const unitId = answers[0].unitId;
   }
   
   score(answers) {
@@ -64,46 +59,14 @@ class App extends Component {
     this.setState({
       currentScore: score
     })
-
+    //goes to another page
     // this.props.history.push('/scores')
-    
   } 
-  // updateCurrentScore = (score) => {
-    
-  //   const newScore = {
-  //     name: '',
-  //     score: '',
-  //     unit: ''
-  //   }
-
-    // make request to backend to store score
-    // THEN go to /scores after fetch request is done (in then)
-  //   fetch('/api/scores', {
-  //     method: 'POST',
-  //     headers: new Headers({'Authorization': 'Bearer ' + tokenService.getToken()}),
-  //     body: {}
-  //   }).then((res) => {
-      
-  //     this.setState({
-  //       currentScore:score
-  //     });
-  //     this.props.history.push('/scores')
-  //   }).catch(err => {
-      
-  //   })
-    
-  // } 
-
-//   calculateScore = (scores) => {
-//     this.setState({scores})
-
-// }
+  
 
   /* other functions */
   getQuestions(user) {
     return fetch('/data')
-    // fetch(`/api/questions/${this.state.unitId}`)
-    // fetch('/api/questions/' + this.state.unitId) // TODO CHANGE TO THIS
         .then( res => res.json() )
         .catch( err => {
         })

@@ -20,6 +20,7 @@ class QuizPage extends Component {
     }
 
     buildAnswers = (props) => {
+        if (this.state && this.state.answers.length) return;
         let answers = props.unit ? props.unit.questions.map(q => ({
             unitId: props.unitId,
             questionId: q.questionId,
@@ -32,6 +33,7 @@ class QuizPage extends Component {
     
     
     submitAnswers = () => {
+        this.props.updateCurrentScore(this.props.score(this.state.answers));
         this.setState({showAnswers: true})
         // will take me to a different page
         // this.props.history.push('/scores')
@@ -46,7 +48,7 @@ class QuizPage extends Component {
         this.props.score(this.state.answers);
         this.props.updateCurrentScore(this.props.score(this.state.answers));
     }
-    
+
     render() {
         
         return (
@@ -70,5 +72,4 @@ class QuizPage extends Component {
         );
     }
 }
-
 export default QuizPage
