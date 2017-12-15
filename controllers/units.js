@@ -1,4 +1,4 @@
-var Unit = require('./../models/Unit')
+var Unit = require('./../models/unit')
 
 function index (req, res) {
     console.log('work!!!!')
