@@ -19,14 +19,14 @@ class UnitsPage extends Component {
     }
     
     render() {
-        console.log(this.state.units)
         if (this.state.units.length === 0) {
             return (<div>loading</div>)
         } else {
             return (
                 <div>
-                
-                    <h1>Select Your Unit</h1>
+                    <br/>
+                    <h2>Select Your Unit</h2>
+                    <br/>
                     {this.state.units.map(unit => <UnitCard key={unit.unitId} unit={unit}/>)}
                 </div>
             )

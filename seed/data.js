@@ -4,26 +4,26 @@ const data = [
         questions: [
             {
                 questionId: 1,
-                text: "What is this?fsdfsdfsdfsdfdsfsd asdfdsfasdf?",
-                choices: ['Jonsadfkjhdaslf alsfjasdlkjflkasdj', 'Tim', 'AJ'],
+                text: "What's the command to make a directory in the terminal?",
+                choices: ['mkdir', 'cd', 'touch', 'rm'],
                 correctIdx: 0
             },
             {
                 questionId: 2,
-                text: "What is that?",
-                choices: ['Jon', 'Tim', 'AJ'],
-                correctIdx: 0
+                text: "What's the command to navigate to the parent directory of the current directory you're in?",
+                choices: ['cd ~', 'cd ..', 'cd /', 'cd'],
+                correctIdx: 1
             },
             {
                 questionId: 3,
-                text: "What is then?",
-                choices: ['Jon', 'Tim', 'AJ'],
-                correctIdx: 0
+                text: "What is semantic HTML?",
+                choices: ['Bogus answer', 'Fake HTML', 'It helps express the meaning or purpose of the content in a webpage', `That doesn't exist`],
+                correctIdx: 2
             },
             {
                 questionId: 4,
-                text: "What are you?",
-                choices: ['Jon', 'Tim', 'AJ'],
+                text: "What are attributes?",
+                choices: ['They provide additional information about an element', 'Bogus answer B', 'Bogus answer C', 'Bogus answer D'],
                 correctIdx: 0
             }
         ]
@@ -35,25 +35,25 @@ const data = [
         questions: [
             {
                 questionId: 1,
-                text: "Who is this?",
-                choices: ['Jon', 'Tim', 'AJ'],
+                text: "In Ruby, everything is a/an ________",
+                choices: ['object', 'string', 'number', 'array'],
                 correctIdx: 0
             },
             {
                 questionId: 2,
-                text: "Who is that?",
-                choices: ['Jon', 'Tim', 'AJ'],
+                text: "String _________ allows us to embed an expression with a string",
+                choices: ['expression', 'interpolation', 'objectification', 'redirection'],
                 correctIdx: 0
             },
             {
                 questionId: 3,
-                text: "Who is then?",
-                choices: ['Jon', 'Tim', 'AJ'],
+                text: "How many levels of scope are there in Ruby and what are they?",
+                choices: ['1: local', '2: local and global', '3: local, global and instance', '4: local, global, instance and class'],
                 correctIdx: 0
             },
             {
                 questionId: 4,
-                text: "Who are you?",
+                text: "Is an empty string truthy or falsey?",
                 choices: ['Jon', 'Tim', 'AJ'],
                 correctIdx: 0
             },

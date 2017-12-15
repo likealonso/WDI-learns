@@ -6,7 +6,13 @@ module.exports = {
 };
 
 function create(req, res) {
-    Score.create(req.body)
+    console.log('req.user =', req.user)
+    // get name from req.user.name?
+
+    const newScore = req.body
+    // newScore.name = req.user.name // ?
+
+    Score.create(newScore)
     .then(score => {
         res.json(score);
     });

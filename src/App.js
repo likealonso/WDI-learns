@@ -15,6 +15,7 @@ import ScorePage from './pages/ScorePage/ScorePage'
 import userService from './utils/userService'
 import HomePage from './pages/HomePage/HomePage'
 import NavBar from './components/NavBar/NavBar'
+import tokenService from './utils/tokenService';
 
 class App extends Component {
   constructor() {
@@ -43,44 +44,55 @@ class App extends Component {
   }
 
   handleAnswers = (answers) => {
-    // can the user submit? aka are there enough answers?
-    // we need to know which unit they are taking
-    // compare the number of questions in the unit they're taking to the number of answers
-    // if not enough answers... do what?
-    // else continue
-
-    // then we can score
-    console.log('answers =', JSON.stringify(answers))
     this.setState({answers});
 
-    // const answers = [{"unitId":"1","questionId":1,"answerIdx":0,"correctIdx":0,"correct":true},{"unitId":"1","questionId":2,"answerIdx":1,"correctIdx":0,"correct":false},{"unitId":"1","questionId":3,"answerIdx":2,"correctIdx":0,"correct":false},{"unitId":"1","questionId":4,"answerIdx":0,"correctIdx":0,"correct":true}];
-    const score = this.score(this.state.answers);
+    // const score = this.score(this.state.answers);
 
-    const unitId = answers[0].unitId;
-    // get other data for api request for POST score
-    // make api request for POST score
+    // const unitId = answers[0].unitId;
   }
   
   score(answers) {
     let score = 0;
     let validAnswer = answers.filter(el => el.answerIdx !== null).length;
-    console.log('HEY!!!!!!!', validAnswer)
     answers.forEach(answer => {
-      console.log('ansuwer =', answer)
       if (answer.correct) score++
     })
     return score+"/10"
-    console.log(score)
   }
 
-  updateCurrentScore = (score) => {
+   updateCurrentScore = (score) => {
     this.setState({
-      currentScore:score
+      currentScore: score
     })
 
-    this.props.history.push('/scores')
+    // this.props.history.push('/scores')
     
   } 
+  // updateCurrentScore = (score) => {
+    
+  //   const newScore = {
+  //     name: '',
+  //     score: '',
+  //     unit: ''
+  //   }
+
+    // make request to backend to store score
+    // THEN go to /scores after fetch request is done (in then)
+  //   fetch('/api/scores', {
+  //     method: 'POST',
+  //     headers: new Headers({'Authorization': 'Bearer ' + tokenService.getToken()}),
+  //     body: {}
+  //   }).then((res) => {
+      
+  //     this.setState({
+  //       currentScore:score
+  //     });
+  //     this.props.history.push('/scores')
+  //   }).catch(err => {
+      
+  //   })
+    
+  // } 
 
 //   calculateScore = (scores) => {
 //     this.setState({scores})
@@ -94,7 +106,6 @@ class App extends Component {
     // fetch('/api/questions/' + this.state.unitId) // TODO CHANGE TO THIS
         .then( res => res.json() )
         .catch( err => {
-            console.log('err =', err)
         })
         .then(units => {
           units.forEach(unit => {
@@ -120,7 +131,7 @@ class App extends Component {
           <NavBar user={this.state.user}
             handleLogout={this.handleLogout}/>
         <br/>
-        <header className='header-footer'>W D I &nbsp;&nbsp; L E A R N S</header>
+        <header className='header-footer'>WDI LEARNS</header>
       </div>
           <Switch>
             <Route exact path='/' render={(props) => (
@@ -166,7 +177,6 @@ class App extends Component {
               : <Redirect to='/'/>  
             )}/> 
             <Route exact path='/units/:id' render={(props) => (
-              // console.log('route > route param id =', props.match.params.id)
               userService.getUser() ?
                 <QuizPage
                   {...props}
@@ -174,6 +184,7 @@ class App extends Component {
                   unit={this.state.units.find(u => u.unitId === parseInt(props.match.params.id))}
                   handleAnswers={this.handleAnswers}
                   calculateScore={this.calculateScore}
+                  finalScore={this.state.currentScore}
                   score={this.score}
                   updateCurrentScore={this.updateCurrentScore}
                 />

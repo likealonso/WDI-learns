@@ -7,12 +7,16 @@ const Questions = (props) => {
     console.log(props.unit.questions)
     }
     return (
-        <div style={{border:'1px red solid', textAlign:'left'}} className="col-xs-12 col-sm-12 col-md-12">
-            {props.unit && props.unit.questions.slice(0,3).map(question => <Question
-                key={question.questionId}
-                question={question}
-                handleAnswer={props.handleAnswer}
-                />)}
+        <div style={{border:'1px red solid', textAlign:'left', backgroundColor:'white'}}>
+            {props.unit && props.unit.questions.slice(0,3).map(question => 
+                <Question
+                    key={question.questionId}
+                    question={question}
+                    handleAnswer={props.handleAnswer}
+                    answer={props.answers.filter(answer => answer.questionId === question.questionId)[0]}
+                    showAnswers={props.showAnswers}
+                />
+            )}
         </div>
     );
 }
