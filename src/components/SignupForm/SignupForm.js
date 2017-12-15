@@ -40,7 +40,6 @@ class SignupForm extends Component {
   render() {
     return (
       <div>
-        <br/>
         <header className="header-footer" style={{fontSize:20}}>Sign Up</header>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">

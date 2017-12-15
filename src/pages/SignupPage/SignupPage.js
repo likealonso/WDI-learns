@@ -16,7 +16,7 @@ class SignupPage extends Component {
     return (
       <div className='SignupPage'>
         <br/>
-            <h2>"Beautiful!"</h2>
+            <h2>"Do or WDI!"</h2>
             <br/>
         <img style={{border: "1px black dotted"}} src="../../images/jimothy.png"></img>
         <SignupForm
