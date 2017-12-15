@@ -23,8 +23,10 @@ const ScorePage = (props) => {
     
   
     return (
-
-      <div>This is your score: {props.score}</div>
+      <div>
+      <br/>
+      <h4>This is your score: {props.score}</h4>
+      </div>
       // <div className='HighScores'>
       //   <header className='header-footer'>High Scores</header>
       //   {props.scores.length ? 

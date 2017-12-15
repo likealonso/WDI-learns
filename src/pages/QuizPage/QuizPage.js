@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import Questions from '../../components/Questions/Questions';
 
@@ -51,17 +51,9 @@ import Questions from '../../components/Questions/Questions';
 class QuizPage extends Component {
     constructor(props) {
         super(props);
+        this.buildAnswers(props);
     }
 
-    componentWillReceiveProps(props) {
-        this.answers = props.unit ? props.unit.questions.map(q => ({
-            unitId: props.unitId,
-            questionId: q.questionId,
-            answerIdx: null,
-            correctIdx: q.correctIdx,
-            correct: false,
-        })) : [];
-    }
     // Possible structure of answer object
     // {
     //   unitId: 2,
@@ -71,39 +63,46 @@ class QuizPage extends Component {
     // }
 
     handleAnswer = (e) => {
-        console.log(this.answers)
-        var answerObj = this.answers.find(answer => answer.questionId === parseInt(e.target.name));
-        if (answerObj) {
-            answerObj.answerIdx = parseInt(e.target.value);
-            answerObj.correct = (answerObj.answerIdx === answerObj.correctIdx);
-            // this.setState({
-            //     answers: this.state.answers
-            // })
-        }
+        var answerObj = this.state.answers.find(answer => answer.questionId === parseInt(e.target.name));
+        answerObj.answerIdx = parseInt(e.target.value);
+        answerObj.correct = (answerObj.answerIdx === answerObj.correctIdx);
+        this.setState({
+            answers: this.state.answers
+        });
     }
 
+    buildAnswers = (props) => {
+        let answers = props.unit ? props.unit.questions.map(q => ({
+            unitId: props.unitId,
+            questionId: q.questionId,
+            answerIdx: null,
+            correctIdx: q.correctIdx,
+            correct: false,
+        })) : [];
+        this.state = {answers}
+    }
     
 
     submitAnswers = () => {
-        console.log('ANSWERS IN SUBMIMTANSWERS', this.answers)
-        if (this.answers){
-            this.props.handleAnswers(this.answers);
-            this.props.score(this.answers);
-            this.props.updateCurrentScore(this.props.score(this.answers))
-            this.props.history.push('/scores')
-        }
+        this.props.handleAnswers(this.state.answers);
+        this.props.score(this.state.answers);
+        this.props.updateCurrentScore(this.props.score(this.state.answers))
+        this.props.history.push('/scores')
         // browserHistory.push('/')
         // console.log(this.props.score(this.state.answers))
         // this.props.calculateScore(this.state.scores)
         // change client route to show AnswersPage
     }
 
-    
+    componentWillReceiveProps(next) {
+        this.buildAnswers(next);
+    }
 
 
 // this.state.answers.some(a => a.answerIdx === null)
     
     render() {
+        
         return (
             <div>
                 <br/>
@@ -116,7 +115,7 @@ class QuizPage extends Component {
                         handleAnswer={this.handleAnswer}
                     />
                     <button onClick={this.submitAnswers}>Submit</button>
-                    <h1>Score: {this.answers ? this.props.score(this.answers)  : 0} </h1>
+                    <h1>Score: {this.props.score(this.state.answers)} </h1>
 
                 </div>
             </div>
@@ -125,7 +124,4 @@ class QuizPage extends Component {
 }
 
 // export default QuizPage;
-export default withRouter(QuizPage)
-
-
-
+export default QuizPage
