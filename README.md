@@ -1,3 +1,4 @@
+# WDI Learns
 ## Description
 Want to get a taste of what the Web Development Immersive (WDI) life at General Assembly is like? You can get it here with the newest WDI educational application: WDI Learns! This app welcomes you and gives you 4 units to choose from, the same ones you're likely to learn at WDI. Give it your best shot and test yourself, get a score back, and try again! Or try another quiz!
 
