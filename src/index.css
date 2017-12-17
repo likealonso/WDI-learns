@@ -13,14 +13,14 @@ body {
   padding: 0px 100px
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .quiz {
     padding: 0px 20px;
   }
 
   .unitButton {
     margin: 30px; 
-    font-size: 10px
+    font-size: 25px
   }
 
 }
