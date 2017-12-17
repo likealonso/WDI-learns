@@ -17,15 +17,117 @@ const data = [
             {
                 questionId: 3,
                 text: "What is semantic HTML?",
-                choices: ['Bogus answer', 'Fake HTML', 'It helps express the meaning or purpose of the content in a webpage', `That doesn't exist`],
+                choices: ['A way to write JavaScript in HTML tags', 'Fake HTML', 'It helps express the meaning or purpose of the content in a webpage', `That doesn't exist`],
                 correctIdx: 2
             },
             {
                 questionId: 4,
                 text: "What are attributes?",
-                choices: ['They provide additional information about an element', 'Bogus answer B', 'Bogus answer C', 'Bogus answer D'],
+                choices: ['They provide additional information about an element', 'We pass them to functions and they return arguments', `It's another word for HTML tag`, 'We wrap our HTML tags around them to make CSS available'],
                 correctIdx: 0
-            }
+            },
+            {
+                questionId: 5,
+                text: "What does HTML stand for?",
+                choices: ['No meaning, just HTML', 'Hypertext Markup Language', 'Hyper Tech Markup Language', 'High Text Media Language'],
+                correctIdx: 1
+            },
+            {
+                questionId: 6,
+                text: "Which of the following are examples of block-level elements (as opposed to inline elements)?",
+                choices: ['<div>, <h1>, <p>', '<span>, <td>, <img>'],
+                correctIdx: 0
+            },
+            {
+                questionId: 7,
+                text: "Properly _________ elements makes the markup more readable and less prone to errors",
+                choices: ['wrapping', 'highlighting', 'defining', 'indenting'],
+                correctIdx: 3
+            },
+            {
+                questionId: 8,
+                text: "What's the syntax used to add comments in HTML documents?",
+                choices: ['// This is a comment', '/* This is a comment */', '<!-- This is a comment -->', '<comment> This is a comment <comment>'],
+                correctIdx: 2
+            },
+            {
+                questionId: 9,
+                text: "True or false, are arrays objects?",
+                choices: ['True', 'False'],
+                correctIdx: 0
+            },
+            {
+                questionId: 10,
+                text: "True or false, is typing 'var nums = new Array(2, 4, 18)' the equivalent of typing 'var nums = [2, 4, 18]'?",
+                choices: ['True', 'False'],
+                correctIdx: 0
+            },
+            {
+                questionId: 11,
+                text: "how do we access array elements?",
+                choices: ['dot notation', 'functions', 'bracket notation', 'variables'],
+                correctIdx: 2
+            },
+            {
+                questionId: 12,
+                text: "What does the method 'parseInt()' do",
+                choices: ['converts strings to numbers', 'converts decimal numbers to whole numbers', 'extracts a section of an array and returns a new one', 'A & B'],
+                correctIdx: 3
+            },
+            {
+                questionId: 13,
+                text: "In JavaScript, there are 7 main data types: strings, numbers, booleans, symbols, objects, undefined and ________",
+                choices: ['arrays', 'functions', 'null', 'regular expressions'],
+                correctIdx: 2
+            },
+            {
+                questionId: 14,
+                text: "Using object constructor syntax you create an object using the keyword '_______' along with the Object() constructor",
+                choices: ['new - new Object()', 'create - create Object()', 'construct - construct Object()', 'make - make Object()'],
+                correctIdx: 0
+            },
+            {
+                questionId: 15,
+                text: "The JavaScript operator 'typeof' lets you know _______",
+                choices: ['whether something is true or false', `what type of data you're working with`, 'what type of iterator you are using', `what type of function you're using`],
+                correctIdx: 1
+            },
+            {
+                questionId: 16,
+                text: "The JavaScript operator 'typeof' lets you know _______",
+                choices: ['whether something is true or false', `what type of data you're working with`, 'what type of iterator you are using', `what type of function you're using`],
+                correctIdx: 1
+            },
+            {
+                questionId: 17,
+                text: "What does DOM stand for",
+                choices: ['Digital Object Model', 'Document Output Model', 'Document Object Model', 'Data Output Model'],
+                correctIdx: 2
+            },
+            {
+                questionId: 18,
+                text: "How many DOM elements are returned by the querySelector() method?",
+                choices: ['all matching elements', 'the first matching element', 'the last matching element', 'undefined'],
+                correctIdx: 1
+            },
+            {
+                questionId: 19,
+                text: "What method should we use if we want to select all of our <li>s in our document?",
+                choices: [`getElementsByClassName('li')`, `getAll('li')`, `getElementsByTagName('li')`, `querySelector('li')`],
+                correctIdx: 2
+            },
+            {
+                questionId: 20,
+                text: "What is the one method used to select an element that is available on the document object only (not elements)?",
+                choices: ['getElementsByClassName()', 'getElementById()', 'querySelector()', 'querySelectorAll()'],
+                correctIdx: 1
+            },        
+            {
+                questionId: 21,
+                text: "What is the name of the method that we use to create/attach event handlers to elements?",
+                choices: ['createEventHandler', 'handleEvent', 'addEventListener', 'selectEventHandler'],
+                correctIdx: 2
+            },            
         ]
     },
 

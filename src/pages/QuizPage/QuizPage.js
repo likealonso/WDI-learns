@@ -7,7 +7,6 @@ class QuizPage extends Component {
     constructor(props) {
         super(props);
         this.buildAnswers(props);
-        this.submitAnswers = this.submitAnswers.bind(this)
     }
 
     handleAnswer = (e) => {
