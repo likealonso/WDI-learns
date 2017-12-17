@@ -5,7 +5,7 @@ const UnitCard = (props) => {
     const unit = props.unit;
     return (
         <div> 
-            <button><Link to={`/units/${unit.unitId}`} className={'unitButton'}>Unit {unit.unitId} </Link></button>
+            <button><Link to={`/units/${unit.unitId}`} className={'unitButton'}>Units {unit.unitId} </Link></button>
         </div>
     )
 }
