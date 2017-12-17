@@ -4,6 +4,11 @@ body {
   font-family: sans-serif;
 }
 
+.unitButton {
+  margin: 30px; 
+  font-size: 50px
+}
+
 .quiz {
   padding: 0px 100px
 }
@@ -11,6 +16,11 @@ body {
 @media (max-width: 600px) {
   .quiz {
     padding: 0px 20px;
+  }
+
+  .unitButton {
+    margin: 30px; 
+    font-size: 25px
   }
 
 }
