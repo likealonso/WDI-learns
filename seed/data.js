@@ -159,6 +159,30 @@ const data = [
                 choices: ['truthy', 'falsey'],
                 correctIdx: 0
             },
+            {
+                questionId: 5,
+                text: "What's the command to open the Ruby shell in the terminal?",
+                choices: ['IRB', 'ruby', 'rbshll', 'node'],
+                correctIdx: 0
+            },
+            {
+                questionId: 6,
+                text: "What's the equivalent of JavaScript's 'console.log' in Ruby?",
+                choices: ['console.log', 'puts', 'rails', 'writes'],
+                correctIdx: 1
+            },
+            {
+                questionId: 7,
+                text: "Everything in Ruby is truthy except for 'false' and _________?",
+                choices: ['undefined', '0', 'nil', 'an empty string'],
+                correctIdx: 2
+            },
+            {
+                questionId: 8,
+                text: "In Ruby, variables are scoped according to the way they are named. What character do you use to identify an instance variable?",
+                choices: ['@@', '@', '$', '[a-z]'],
+                correctIdx: 1
+            },
         ]
     },
 
