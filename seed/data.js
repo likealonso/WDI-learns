@@ -94,36 +94,30 @@ const data = [
             },
             {
                 questionId: 16,
-                text: "The JavaScript operator 'typeof' lets you know _______",
-                choices: ['whether something is true or false', `what type of data you're working with`, 'what type of iterator you are using', `what type of function you're using`],
-                correctIdx: 1
-            },
-            {
-                questionId: 17,
                 text: "What does DOM stand for",
                 choices: ['Digital Object Model', 'Document Output Model', 'Document Object Model', 'Data Output Model'],
                 correctIdx: 2
             },
             {
-                questionId: 18,
+                questionId: 17,
                 text: "How many DOM elements are returned by the querySelector() method?",
                 choices: ['all matching elements', 'the first matching element', 'the last matching element', 'undefined'],
                 correctIdx: 1
             },
             {
-                questionId: 19,
+                questionId: 18,
                 text: "What method should we use if we want to select all of our <li>s in our document?",
                 choices: [`getElementsByClassName('li')`, `getAll('li')`, `getElementsByTagName('li')`, `querySelector('li')`],
                 correctIdx: 2
             },
             {
-                questionId: 20,
+                questionId: 19,
                 text: "What is the one method used to select an element that is available on the document object only (not elements)?",
                 choices: ['getElementsByClassName()', 'getElementById()', 'querySelector()', 'querySelectorAll()'],
                 correctIdx: 1
             },        
             {
-                questionId: 21,
+                questionId: 20,
                 text: "What is the name of the method that we use to create/attach event handlers to elements?",
                 choices: ['createEventHandler', 'handleEvent', 'addEventListener', 'selectEventHandler'],
                 correctIdx: 2
