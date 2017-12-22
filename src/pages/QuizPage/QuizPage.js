@@ -49,26 +49,31 @@ class QuizPage extends Component {
     }
 
     render() {
-        
-        return (
-            <div>
-                <br/><br/>
-                <h4>You have entered the world of WDI. On guard!</h4> 
-                    <h2>Take this Unit {this.props.unitId} Quiz:</h2><br/>
-                    <div style={{fontSize: 15}}><Link to='/units'>Or Try Another Quiz!</Link></div><br/>
-                    <div className="quiz">
-                        <Questions 
-                            unit={this.props.unit}
-                            currentUnitId={this.props.unitId}
-                            handleAnswer={this.handleAnswer}
-                            answers={this.state.answers}
-                            showAnswers={this.state.showAnswers}
-                        />
-                        <button className="btn btn-primary" onClick={this.submitAnswers}>What's your score?</button><br/><br/>
-                    <div>You score is: {this.props.finalScore}</div><br/>
+        if (this.props.unit === undefined) {
+            return 'LOADING'
+        }
+        else {
+            return (
+                <div>
+                    <br/><br/>
+                    <h4>You have entered the world of WDI. On guard!</h4><br/>
+                        <img style={{width:150, height:"auto"}} src={this.props.unit.imgUrl}></img><br/><br/>
+                        <h2>Take this Unit {this.props.unitId} Quiz:</h2>
+                        <div style={{fontSize: 15}}><Link to='/units'>Or Try Another Quiz!</Link></div><br/>
+                        <div className="quiz">
+                            <Questions 
+                                unit={this.props.unit}
+                                currentUnitId={this.props.unitId}
+                                handleAnswer={this.handleAnswer}
+                                answers={this.state.answers}
+                                showAnswers={this.state.showAnswers}
+                            />
+                            <button className="btn btn-primary" onClick={this.submitAnswers}>What's your score?</button><br/><br/>
+                        <div>You score is: {this.props.finalScore}</div><br/>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 export default QuizPage

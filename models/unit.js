@@ -10,7 +10,8 @@ var questionSchema = new Schema({
 
 var unitSchema = new Schema({
     unitId: Number,
-    questions: [questionSchema]
+    questions: [questionSchema],
+    imgUrl: String 
     
 })
 

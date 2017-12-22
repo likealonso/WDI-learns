@@ -122,7 +122,8 @@ const data = [
                 choices: ['createEventHandler', 'handleEvent', 'addEventListener', 'selectEventHandler'],
                 correctIdx: 2
             },            
-        ]
+        ],
+        imgUrl: "https://i.imgur.com/jww1g6r.jpg",
     },
 
 //unit 2 questions
@@ -177,7 +178,8 @@ const data = [
                 choices: ['@@', '@', '$', '[a-z]'],
                 correctIdx: 1
             },
-        ]
+        ],
+        imgUrl: "https://i.imgur.com/oga8Een.png",
     },
 
 //unit 3 questions
@@ -208,7 +210,8 @@ const data = [
                 choices: ['Jon', 'Tim', 'AJ'],
                 correctIdx: 0
             },  
-        ]
+        ],
+        imgUrl: "https://i.imgur.com/meJw3TF.png",
     },
 //unit 4 questions
 
@@ -336,7 +339,8 @@ const data = [
                 correctIdx: 1
             },
             
-        ]
+        ],
+        imgUrl: "https://i.imgur.com/Rh7sozk.png",
     }
 ]
 
