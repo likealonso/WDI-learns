@@ -188,28 +188,59 @@ const data = [
         questions: [
             {
                 questionId: 1,
-                text: "When is this?",
-                choices: ['Jon', 'Tim', 'AJ'],
+                text: "True or false, there's no DOM in Node",
+                choices: ['True', 'False'],
                 correctIdx: 0
             },
             {
                 questionId: 2,
-                text: "When is that?",
-                choices: ['Jon', 'Tim', 'AJ'],
-                correctIdx: 0
+                text: "_________ is/are to Node as Gems are to Ruby",
+                choices: ['modules', 'mongo', 'packages', 'mongoose'],
+                correctIdx: 2
             },
             {
                 questionId: 3,
-                text: "When is then?",
-                choices: ['Jon', 'Tim', 'AJ'],
-                correctIdx: 0
+                text: "How many modules can be defined in a file?",
+                choices: ['0', '1', '2', 'as many as you want'],
+                correctIdx: 1
             },
             {
                 questionId: 4,
-                text: "When are you?",
-                choices: ['Jon', 'Tim', 'AJ'],
-                correctIdx: 0
+                text: "What is the special object we use in our module to attach or assign functionality?",
+                choices: ['requires', 'npm', 'module.exports', 'node'],
+                correctIdx: 2
             },  
+            {
+                questionId: 5,
+                text: "How many times can we require a module in our program?",
+                choices: ['0', '1', '2', 'as many as you want'],
+                correctIdx: 3
+            },  
+            {
+                questionId: 6,
+                text: "'npm' stands for _________ ",
+                choices: ['node package manager', 'node power model', 'node public manager', 'node program model'],
+                correctIdx: 0
+            },
+            {
+                questionId: 7,
+                text: "Middleware are ________",
+                choices: ['objects', 'functions', 'html', 'json'],
+                correctIdx: 1
+            },  
+            {
+                questionId: 8,
+                text: "What method do we call to mount middleware?",
+                choices: ['app.set()', 'app.use()', 'app.require()', 'app.mount()'],
+                correctIdx: 1
+            },    
+            {
+                questionId: 9,
+                text: "True or false, the order in which middleware is mounted matters",
+                choices: ['True', 'False'],
+                correctIdx: 0
+            },              
+            
         ],
         imgUrl: "https://i.imgur.com/meJw3TF.png",
     },
