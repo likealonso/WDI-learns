@@ -239,6 +239,48 @@ const data = [
                 text: "True or false, the order in which middleware is mounted matters",
                 choices: ['True', 'False'],
                 correctIdx: 0
+            },          
+            {
+                questionId: 10,
+                text: "A MongoDB database consists of __________",
+                choices: ['documents', 'collections', 'fields', 'tables'],
+                correctIdx: 1
+            },             
+            {
+                questionId: 11,
+                text: "A MongoDB document consists of __________",
+                choices: ['databases', 'collections', 'fields', 'tables'],
+                correctIdx: 2
+            },             
+            {
+                questionId: 12,
+                text: "A MongoDB collection consists of __________",
+                choices: ['databases', 'documents', 'fields', 'tables'],
+                correctIdx: 1
+            },              
+            {
+                questionId: 13,
+                text: "What is the name of the field that serves as a document's primary key?",
+                choices: ['_id', 'obj', 'string', 'key'],
+                correctIdx: 0
+            },        
+            {
+                questionId: 14,
+                text: "In the Mongo shell, what's the command to show the list of your databases",
+                choices: ['db', 'show dbs', 'show collections', 'use dbs'],
+                correctIdx: 1
+            },
+            {
+                questionId: 15,
+                text: "In the Mongo shell, what would you type to create and insert a document into a collection named 'people'?",
+                choices: ['db.people.create(...)', 'db.people.find(...)', 'dbs people', 'db.people.insert(...)'],
+                correctIdx: 3
+            },
+            {
+                questionId: 16,
+                text: "While in MongoDB's shell, what command would we enter to retrieve all of the documents from a collection named books?",
+                choices: ['db.books.find({})', 'db.books.findAll()', 'db.books.update()', 'db.books.remove()'],
+                correctIdx: 0
             },              
             
         ],
