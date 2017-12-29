@@ -281,7 +281,49 @@ const data = [
                 text: "While in MongoDB's shell, what command would we enter to retrieve all of the documents from a collection named books?",
                 choices: ['db.books.find({})', 'db.books.findAll()', 'db.books.update()', 'db.books.remove()'],
                 correctIdx: 0
-            },              
+            },         
+            {
+                questionId: 17,
+                text: "___________ is to MongoDB as ActiveRecord is to a SQL database",
+                choices: ['Node', 'Mongoose', 'Express', 'mongoid'],
+                correctIdx: 1
+            },
+            {
+                questionId: 18,
+                text: "There is a one-to-_________ mapping between Mongoose models and MongoDB collections",
+                choices: ['one', 'many', 'two', '10'],
+                correctIdx: 0
+            },
+            {
+                questionId: 19,
+                text: "The model method _________ queries data and returns an array of all documents matching the query object",
+                choices: ['findOne', 'findById', 'findAll', 'find'],
+                correctIdx: 3
+            },
+            {
+                questionId: 20,
+                text: "The model method _________ queries data and finds a document based on its _id",
+                choices: ['findOne', 'findById', 'findAll', 'find'],
+                correctIdx: 1
+            },
+            {
+                questionId: 21,
+                text: "The model method _________ queries data and finds the first document that matches the query object",
+                choices: ['findOne', 'findById', 'findAll', 'find'],
+                correctIdx: 0
+            },
+            {
+                questionId: 22,
+                text: "A document embedded inside of another document is called a/an __________",
+                choices: ['subclass', 'object', 'subdocument', 'collection'],
+                correctIdx: 2
+            },
+            {
+                questionId: 23,
+                text: "The method __________ allows you to access another document in a given collection other than the one you are currently querying",
+                choices: ['find', 'push', 'findById', 'populate'],
+                correctIdx: 3
+            },
             
         ],
         imgUrl: "https://i.imgur.com/meJw3TF.png",
