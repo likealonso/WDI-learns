@@ -2,6 +2,10 @@
   "name": "wdi-learns",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "9.x",
+    "npm": "6.x"
+  },
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
