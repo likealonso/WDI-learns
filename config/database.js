@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-
+console.log('are we hitting this?')
 // mongoose.connect("mongodb://localhost/wdi-learns");
 mongoose.connect(process.env.DATABASE_URL);
 // mongoose.connect('mongodb://localhost/amaz');
