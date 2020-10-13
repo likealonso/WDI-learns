@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // mongoose.connect("mongodb://localhost/wdi-learns");
-//mongoose.connect(process.env.DATABASE_URL);
-mongoose.connect("mongodb+srv://alonso:haulass21@wdi-learns.geijo.azure.mongodb.net/wdi-learns?retryWrites=true&w=majority")
+mongoose.connect(process.env.DATABASE_URL);
 // mongoose.connect('mongodb://localhost/amaz');
 
 const db = mongoose.connection;
