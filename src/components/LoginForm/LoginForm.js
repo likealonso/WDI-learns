@@ -13,7 +13,6 @@ class LoginForm extends Component {
 
   handleChange = (field, e) => {
     // TODO: implement in an elegant way
-    console.log('Are we here?')
     this.setState({
       [field]: e.target.value
     });

@@ -88,7 +88,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.user)
+    //console.log(this.state.user)
     return (
       <div className="App">
       <div className="header-header">

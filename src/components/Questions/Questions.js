@@ -4,7 +4,7 @@ import Question from './../Question/Question';
 
 const Questions = (props) => {    
     if (props.unit) {
-    console.log(props.unit.questions)
+    //console.log(props.unit.questions)
     }
     return (
         <div>

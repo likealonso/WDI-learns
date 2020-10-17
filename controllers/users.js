@@ -18,7 +18,7 @@ function login(req, res) {
 
 
 function signup(req, res) {
-    console.log('WORKiNG?')
+  //console.log('WORKiNG?')
   var user = new User(req.body);
   user.save()
   .then(user => {

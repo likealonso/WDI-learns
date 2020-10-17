@@ -10,7 +10,7 @@ sood.then(() => {
 
 })
 .then((unit) => {
-    console.log(unit);
+    //console.log(unit);
     mongoose.connection.close();
     process.exit();
 })
